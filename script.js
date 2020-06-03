@@ -13,91 +13,109 @@ let result_request;
 let xml = new XMLHttpRequest();
 
 let API_url = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
-// Формуємо запити на роботу з API
-xml.open('GET',API_url);
-xml.send();
 
-xml.onload = function(){
-    if(xml.status != 200){
-        alert(`alert ${xml.statusText}`);
+
+fetch(API_url)
+.then(function(response){
+    if(response.status !=200){
+        console.log(`Alert ${response.status}`);
+        return;
     }
-    else{
-        result_request = JSON.parse(xml.response);
+    response.json().then(function(value){
+        result_request = value;
         Show_info_val_buy();
-    }
-}
+     }) 
+})
+.catch(function(data){
+    alert(`Error ${data}`);
+})
 
 for(let i = 0; i<radio_bnt_buy_sale.length;i++){ // Налаштовуємо клавіши вибору продажу/покупки валюти
     radio_bnt_buy_sale[i].addEventListener('click',function(){
-        xml.open('GET',API_url);
-        xml.send();
-        xml.onload = function(){
-          if(xml.status != 200){
-            alert(`alert ${xml.statusText}`);
-          }
-          else{
-            result_request = JSON.parse(xml.response);
-            if(radio_bnt_buy_sale[0].checked == true){
-                Show_info_val_buy();
+       
+       fetch(API_url)
+       .then(function(response){
+            if(response.status!=200){
+                alert(`Alert ${response.status}`);
+                return;
             }
-            else if(radio_bnt_buy_sale[1].checked == true){
-                Show_info_val_sale();
-            }            
-          }
-        } 
+            response.json().then(function(value){
+                 result_request = value;
+                 if(radio_bnt_buy_sale[0].checked == true){
+                    Show_info_val_buy();
+                 }
+                 else if(radio_bnt_buy_sale[1].checked == true){
+                    Show_info_val_sale();
+                 }
+            })
+       })
+       .catch(function(data){
+           alert(`Error ${data}`);
+       })
+    
+    
+    
     })
 }
 
 buttons[0].addEventListener('click',function(){
-    xml.open('GET',API_url);
-    xml.send();
-    xml.onload = function(){
-        if(xml.status!=200){
-            alert(`alert ${xml.statusText}`);
-        }
-        else{
-            result_request = JSON.parse(xml.response);  
 
-            if(radio_bnt_buy_sale[0].checked == true){
+    fetch(API_url)
+    .then(function(response){
+      if(response.status!=200){
+        alert(`Alert ${respons.status}`);  
+        return;
+      }
+
+      response.json().then(function(value){
+         
+        result_request = value;
+        
+        if(radio_bnt_buy_sale[0].checked == true){
               
-                Show_info_val_buy();
+            Show_info_val_buy();
 
-                if(radio_buttons_from[0].checked==true){
-                    ChooseTo(0,0);
-                }
-                else if(radio_buttons_from[1].checked==true){
-                    ChooseTo(0,1);
-                }
-                else if(radio_buttons_from[2].checked==true){
-                    ChooseTo(0,2);
-                }
-                else if(radio_buttons_from[3].checked==true){
-                    ChooseTo(0,3);
-                }
-
+            if(radio_buttons_from[0].checked==true){
+                ChooseTo(0,0);
             }
-            else if(radio_bnt_buy_sale[1].checked == true){
-
-                Show_info_val_sale();
-
-                if(radio_buttons_from[0].checked==true){
-                    ChooseTo(1,0);
-                }
-                else if(radio_buttons_from[1].checked==true){
-                    ChooseTo(1,1);
-                }
-                else if(radio_buttons_from[2].checked==true){
-                    ChooseTo(1,2);
-                }
-                else if(radio_buttons_from[3].checked==true){
-                    ChooseTo(1,3);    
-                }
-
+            else if(radio_buttons_from[1].checked==true){
+                ChooseTo(0,1);
+            }
+            else if(radio_buttons_from[2].checked==true){
+                ChooseTo(0,2);
+            }
+            else if(radio_buttons_from[3].checked==true){
+                ChooseTo(0,3);
             }
 
         }
+        else if(radio_bnt_buy_sale[1].checked == true){
 
-    }
+            Show_info_val_sale();
+
+            if(radio_buttons_from[0].checked==true){
+                ChooseTo(1,0);
+            }
+            else if(radio_buttons_from[1].checked==true){
+                ChooseTo(1,1);
+            }
+            else if(radio_buttons_from[2].checked==true){
+                ChooseTo(1,2);
+            }
+            else if(radio_buttons_from[3].checked==true){
+                ChooseTo(1,3);    
+            }
+
+        } 
+
+
+      })
+    })
+    .catch(function(data){
+        alert(`Error ${data}`);
+    })
+
+
 })
 
 
@@ -132,7 +150,7 @@ function ChooseTo(index_buy_sale,index){ // головна функція кон
         else if(index==1){
             if(radio_buttons_to[0].checked == true){          
             
-                result = (how_much_input*(1/result_request[0].buy));
+                result = (how_much_input*(1/result_request[0].buy)); //перевод у гривні по принципу  грн = кіл.долл/долл на одн грн
                 $result_input.value = `${result}`; 
      
             }
