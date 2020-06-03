@@ -1,0 +1,113 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+.radio_buttons_from, .radio_buttons_to{
+    width: 60px;
+    height: 110px;
+    /*border:solid 1px black;*/
+}
+
+.radio_buttons_from input, .radio_buttons_to input{
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.input_currency_from, .output_currency_to{
+    width: 100px;
+    /*border:solid 1px black;*/
+    margin-top: 35px;
+    margin-left: 5px;    
+}
+
+.input_currency_from input, .output_currency_to input{
+    width: 96%;
+}
+.input_currency_from label, .output_currency_to label{
+    display:block;
+    text-align: center;
+}
+
+.converter_filed{
+    width: 180px;
+}
+
+.convert_buttons{
+    margin-top:7px;
+    
+}
+
+.convert_buttons button{
+    width: 55px;
+    height: 25px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background-color:#1781d6;
+    color:white;
+    border:solid 1px white;
+    border-radius: 5px;
+}
+
+.filed_1, .filed_2{
+    border:solid 2px #fffbfbb8;
+    border-radius:5px;
+}
+
+/*
+.converter_filed article{
+    border:solid 1px black;
+}
+*/
+.filed_1, .filed_2{
+    display:flex;
+    justify-content: space-between;
+}
+
+.filed_2{
+    margin-top:10px;
+}
+
+.current_course{
+    border:solid 2px #fffbfbb8;
+    border-radius: 5px;
+    width: 200px;  
+}
+
+.converter{
+    width: 400px;
+    border:solid 2px white;
+    border-radius:10px;
+    margin-top:10px;
+    margin-left: auto;
+    margin-right: auto;
+    /*
+    border:solid 2px white;
+    border-radius:5px;
+    */
+    background-color: #105890;/*#2a8ad6;/*skyblue;*/
+    font-weight: 500;
+    font-size: 17px;
+    color:white;
+    font-family: Arial;
+}
+
+.tittle{
+    text-align: center;
+    margin-bottom:10px;
+}
+
+.main_filed{
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio_bnt_buy_sale{
+    text-align: center;
+}
+
+.data{
+    /*border:solid 1px black;*/
+    margin-top:10px;
+}

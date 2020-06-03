@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+    <style>
+       
+    </style>
+    <script src="main.js"></script>
+</head>
+<body>
+  
+  <section class='converter'>
+    <article class='tittle'>CONVERTER</article>
+    <article class='main_filed'> 
+      <section class='converter_filed'>
+        <article class='filed_1'>
+          <div class="input_currency_from">
+            <label for='convert_currency_from'>How much?</label>
+            <input type='number' name='convert_currency_from' value='0.00'>
+          </div>
+          <div class="radio_buttons_from">
+            <input type='radio' id='c_UAR_from' name='currency_from' value ='UAR' checked>
+            <label for='c_UAR_from'>UAR</label>
+            <input type='radio' id='c_USD_from' name='currency_from' value ='USD'>
+            <label for='c_USD_from'>USD</label>
+            <input type='radio' id='c_EUR_from' name='currency_from' value ='EUR'>
+            <label for='c_EUR_from'>EUR</label>
+            <input type='radio' id='c_RUB_from' name='currency_from' value ='RUB'>
+            <label for='c_RUB_from'>RUB</label>
+          </div>
+        </article>
+        <article class='filed_2'>
+          <div class="output_currency_to">
+            <label for='convert_currency_to'>Result</label>
+            <input type='number'  name='convert_currency_to' value='0.00'>
+          </div>
+          <div class="radio_buttons_to">
+            <input type='radio' id='c_UAR_to' name='currency_to' value ='UAR' checked>
+            <label for='c_UAR_to'>UAR</label>
+            <input type='radio' id='c_USD_to' name='currency_to' value ='USD'>
+            <label for='c_USD_to'>USD</label>
+            <input type='radio' id='c_EUR_to' name='currency_to' value ='EUR'>
+            <label for='c_EUR_to'>EUR</label>
+            <input type='radio' id='c_RUB_to' name='currency_to' value ='RUB'>
+            <label for='c_RUB_to'>RUB</label>
+          </div>
+        </article>
+        <article class="convert_buttons">   
+            <button>Convert</button>
+        </article>
+      </section>
+      <div class="current_course">
+        <div class="radio_bnt_buy_sale">
+          <input type='radio' id='c_buy' name='buy_sale' value ='BUY' checked>
+            <label for='c_buy'>BUY</label>
+            <input type='radio' id='c_sale' name='buy_sale' value ='SALE'>
+            <label for='c_sale'>SALE</label>
+        </div>
+        <div class="data">
+
+        </div>
+      </div>
+
+    </article>
+
+  </section>
+
+  
+
+   
+
+<script src="script.js"></script>
+</body>
+</html>
